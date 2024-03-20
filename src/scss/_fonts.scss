@@ -1,7 +1,11 @@
 @font-face {
-  @include font("inter-v13-cyrillic_latin", 600);
+  @include font("nunito-v26-cyrillic", 400);
 }
 
 @font-face {
-  @include font("inter-v13-cyrillic_latin", 400)
+  @include font("nunito-v26-cyrillic", 600)
+}
+
+@font-face {
+  @include font("nunito-v26-cyrillic", 900)
 }

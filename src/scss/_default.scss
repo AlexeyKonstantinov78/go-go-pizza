@@ -15,7 +15,8 @@ body {
   overflow-x: hidden;
   min-width: 320px;
   min-height: 100vh;
-  font-family: "inter-v13-cyrillic_latin", sans-serif;
+  font-family: "nunito-v26-cyrillic",
+    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -24,7 +25,7 @@ body {
   line-height: 1.5;
   font-size: 16px;
   font-weight: 400;
-  color: $white;
+  color: $dark;
   /*цвет под ваш проект*/
   background-color: $background;
   /*цвет под ваш проект*/

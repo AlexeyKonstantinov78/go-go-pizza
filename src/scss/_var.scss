@@ -5,13 +5,13 @@ $primaryDark: #AEAAAA;
 $secondary: #EAEAEA;
 $secondaryDark: #6B6B6B;
 
-$black: #000;
+$dark: #2c2826;
 $white: #FFF;
 
 $tablet: 768px;
 $laptop: 1024px;
 $desktop: 1280px;
-$background: #000201;
+$background: #fbf3e8;
 
 @mixin tablet {
   @media (min-width: #{$tablet}) {
