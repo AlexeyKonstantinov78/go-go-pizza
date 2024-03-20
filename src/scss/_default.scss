@@ -1,0 +1,126 @@
+html {
+  position: relative;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  position: relative;
+  overflow-x: hidden;
+  min-width: 320px;
+  min-height: 100vh;
+  font-family: "inter-v13-cyrillic_latin", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
+  line-height: 1.5;
+  font-size: 16px;
+  font-weight: 400;
+  color: $white;
+  /*цвет под ваш проект*/
+  background-color: $background;
+  /*цвет под ваш проект*/
+  // background-image: url(../img/sprite.svg#fire);
+  // background-position: center top 50%;
+  // background-repeat: no-repeat;
+  // background-size: cover;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+svg {
+  max-height: 100%;
+}
+
+button {
+  padding: 0;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+p,
+figure,
+fieldset {
+  margin: 0;
+}
+
+iframe {
+  border: none;
+}
+
+// .visually-hidden {
+//   position: absolute !important;
+//   clip: rect(1px 1px 1px 1px);
+//   /* IE6, IE7 */
+//   clip: rect(1px, 1px, 1px, 1px);
+//   padding: 0 !important;
+//   border: 0 !important;
+//   height: 1px !important;
+//   width: 1px !important;
+//   overflow: hidden;
+// }
+
+.visually-hidden {
+  position: fixed;
+  transform: scale(0);
+}
+
+.container {
+  max-width: 1432px;
+  padding: 0 66px;
+  margin: 0 auto;
+
+  @media (width <=900px) {
+    padding: 0 44px;
+  }
+
+  @media (width <=620px) {
+    padding: 0 16px;
+  }
+}
+
+// @include tablet {
+//   body {
+//     background-color: red;
+//   }
+// }
+
+// @include laptop {
+//   body {
+//     background-color: green;
+//   }
+// }
+
+// @include desktop {
+//   body {
+//     background-color: blue;
+//   }
+// }
