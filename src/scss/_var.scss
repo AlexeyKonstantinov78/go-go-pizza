@@ -1,17 +1,14 @@
-$primary: #F87C09;
-$primaryLight: #FF922E;
-$primaryDark: #AEAAAA;
-
-$secondary: #EAEAEA;
-$secondaryDark: #6B6B6B;
-
+$beige: #c1ab91;
+$orange: #ff8a00;
+$light: #fbf3e8;
 $dark: #2c2826;
 $white: #FFF;
+
+$offset-container: 14px;
 
 $tablet: 768px;
 $laptop: 1024px;
 $desktop: 1280px;
-$background: #fbf3e8;
 
 @mixin tablet {
   @media (min-width: #{$tablet}) {

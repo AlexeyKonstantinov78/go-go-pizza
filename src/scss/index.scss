@@ -3,3 +3,9 @@
 @import 'normalize';
 @include normalize();
 @import 'default';
+@import 'header';
+@import 'hero';
+@import 'toppings';
+@import 'pizza';
+@import 'card';
+@import 'footer';

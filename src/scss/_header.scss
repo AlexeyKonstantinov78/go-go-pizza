@@ -1,0 +1,27 @@
+.header {
+  position: absolute;
+  top: 24px;
+  left: 0;
+  right: 0;
+  z-index: 5;
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+  }
+
+  &__logo {
+    width: 120px;
+  }
+
+  &__button-cart {
+    color: $dark;
+    transition: color 0.36s;
+
+    &:hover {
+      color: $orange;
+    }
+  }
+}

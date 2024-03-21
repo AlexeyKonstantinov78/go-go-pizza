@@ -1,0 +1,22 @@
+.pizza {
+  padding-top: 24px;
+  padding-bottom: 24px;
+
+  &__container {}
+
+  &__title {
+    font-weight: 900;
+    font-size: 28px;
+    line-height: 1;
+    color: $dark;
+    margin-bottom: 24px;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+  }
+
+  &__item {}
+}
