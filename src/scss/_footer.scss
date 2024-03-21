@@ -1,0 +1,33 @@
+.footer {
+  padding-top: 32px;
+  padding-bottom: 24px;
+  border-top: 1px solid $beige;
+
+
+  &__container {
+    text-align: center;
+    font-size: 14px;
+    color: $beige;
+  }
+
+  &__logo {
+    width: 222px;
+    margin: 0 auto;
+    margin-bottom: 32px;
+  }
+
+  &__copyright {
+    margin-bottom: 16px;
+  }
+
+  &__developers {
+    display: block;
+    max-width: 162px;
+    margin: 0 auto;
+    text-align: left;
+  }
+
+  &__developer {}
+
+  &__link {}
+}
