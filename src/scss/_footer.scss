@@ -3,17 +3,31 @@
   padding-bottom: 24px;
   border-top: 1px solid $beige;
 
+  @media (width >=620px) {
+    padding-top: 64px;
+    padding-bottom: 40px;
+  }
+
 
   &__container {
     text-align: center;
     font-size: 14px;
     color: $beige;
+
+    @media (width >=620px) {
+      font-size: 20px;
+    }
   }
 
   &__logo {
     width: 222px;
     margin: 0 auto;
     margin-bottom: 32px;
+
+    @media (width >=620px) {
+      width: 400px;
+      margin-bottom: 64px;
+    }
   }
 
   &__copyright {
@@ -25,9 +39,10 @@
     max-width: 162px;
     margin: 0 auto;
     text-align: left;
+
+    @media (width >=620px) {
+      max-width: 222px;
+    }
   }
 
-  &__developer {}
-
-  &__link {}
 }
