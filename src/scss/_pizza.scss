@@ -35,5 +35,12 @@
     }
   }
 
-  &__item {}
+  &__item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__card {
+    flex-grow: 1;
+  }
 }

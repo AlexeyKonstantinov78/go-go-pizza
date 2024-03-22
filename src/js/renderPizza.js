@@ -12,9 +12,11 @@ const getPizzas = async () => {
   }
 };
 
+const textToLoverToUpperCase = name => name[0].toUpperCase() + name.slice(1).toLowerCase();
+
 const createCard = data => {
   const card = document.createElement('article');
-  card.classList.add('card');
+  card.classList.add('card', 'pizza__card');
 
   card.innerHTML = `
     <picture>
@@ -22,7 +24,7 @@ const createCard = data => {
       <img class="card__image" src="${data.images[0]}" alt="${data.name.ru}">
     </picture>
     <div class="card__content">
-        <h3 class="card__title">${data.name.ru}</h3>
+        <h3 class="card__title">${textToLoverToUpperCase(data.name.ru)}</h3>
         <p class="card__info"><span class="card__price">${data.price['25cm']} &#x20bd;</span><span>/</span><span class="card__weight">25 см</span></p>
         <button class="card__button" data-id="${data.id}">Выбрать</button>
     </div>
