@@ -6,6 +6,10 @@ $white: #FFF;
 
 $offset-container: 14px;
 
+@media (width >=540px) {
+  $offset-container: 40px;
+}
+
 $tablet: 768px;
 $laptop: 1024px;
 $desktop: 1280px;

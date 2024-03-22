@@ -5,6 +5,10 @@
   right: 0;
   z-index: 5;
 
+  @media (width >=620px) {
+    top: 40px;
+  }
+
   &__container {
     display: flex;
     justify-content: space-between;
@@ -14,6 +18,10 @@
 
   &__logo {
     width: 120px;
+
+    @media (width >=620px) {
+      width: 164px;
+    }
   }
 
   &__button-cart {

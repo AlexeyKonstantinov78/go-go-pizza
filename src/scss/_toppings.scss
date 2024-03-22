@@ -2,11 +2,23 @@
   padding-top: 24px;
   padding-bottom: 24px;
 
+  @media (width >=620px) {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+
   &__container {}
 
   &__title {
     position: fixed;
     transform: scale(0);
+
+    @media (width >=860px) {
+      position: static;
+      transform: none;
+      font-size: 24px;
+      margin-bottom: 16px;
+    }
   }
 
   &__button {
@@ -18,6 +30,14 @@
 
     &_active .toppings__arrow {
       transform: scaleY(-1);
+    }
+
+    @media (width >=620px) {
+      font-size: 24px;
+    }
+
+    @media (width >=860px) {
+      display: none;
     }
   }
 
@@ -38,6 +58,11 @@
       display: flex;
       transition: max-height 0.36s;
     }
+
+    @media (width >=860px) {
+      display: flex;
+      max-height: none;
+    }
   }
 
   &__item {}
@@ -51,6 +76,10 @@
     font-size: 14px;
     color: $beige;
     border: 1px solid transparent;
+
+    @media (width >=620px) {
+      font-size: 20px;
+    }
   }
 
   &__checkbox {

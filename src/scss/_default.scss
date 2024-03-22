@@ -83,11 +83,21 @@ iframe {
 }
 
 .container {
-  max-width: calc(1300px + $offset-container * 2);
-  padding: 0 $offset-container;
-  margin: 0 auto;
+  --offset-container: 14px;
 
-  @media (width >=900px) {}
+  @media (width >=620px) {
+    --offset-container: 40px;
+  }
+
+  @media (width >=860px) {}
+
+  @media (width >=1140px) {
+    --offset-container: 40px;
+  }
+
+  max-width: calc(1300px + var(--offset-container) * 2);
+  padding: 0 var(--offset-container);
+  margin: 0 auto;
 
   @media (width >=620px) {}
 }
