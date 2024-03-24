@@ -1,4 +1,4 @@
-import { API_URL } from './const.js';
+import { API_URL, textToLoverToUpperCase } from './const.js';
 
 const getPizzas = async () => {
   try {
@@ -11,8 +11,6 @@ const getPizzas = async () => {
     console.error(error);
   }
 };
-
-const textToLoverToUpperCase = name => name[0].toUpperCase() + name.slice(1).toLowerCase();
 
 const createCard = data => {
   const card = document.createElement('article');
