@@ -1,16 +1,5 @@
-import { API_URL, textToLoverToUpperCase } from './const.js';
-
-const fetchToppings = async () => {
-  try {
-    const response = await fetch(`${API_URL}/api/toppings`)
-    if (!response.ok) {
-      throw new Error('Опс что то пошло не так');
-    }
-    return await response.json();
-  } catch (err) {
-    console.error(err);
-  }
-}
+import { getData } from './getData.js';
+import { textToLoverToUpperCase } from './util.js';
 
 const createTopping = (data, i) => {
   const li = document.createElement('li');
@@ -26,7 +15,7 @@ const createTopping = (data, i) => {
 
 export const renderToppings = async () => {
   const toppingsList = document.querySelector('.toppings__list');
-  const toppings = await fetchToppings();
+  const toppings = await getData('/api/toppings');
   toppingsList.textContent = '';
 
   const itemList = toppings.ru.map((data, index) => {

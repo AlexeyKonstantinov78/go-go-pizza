@@ -1,16 +1,5 @@
-import { API_URL, textToLoverToUpperCase } from './const.js';
-
-const getPizzas = async () => {
-  try {
-    const response = await fetch(`${API_URL}/api/products`);
-    if (!response.ok) {
-      throw new Error('Опс что то пошло не так');
-    }
-    return await response.json();
-  } catch (error) {
-    console.error(error);
-  }
-};
+import { getData } from './getData.js';
+import { textToLoverToUpperCase } from './util.js';
 
 const createCard = data => {
   const card = document.createElement('article');
@@ -32,7 +21,7 @@ const createCard = data => {
 };
 
 export const renderPizza = async () => {
-  const pizzas = await getPizzas();
+  const pizzas = await getData('/api/products');
   const pizzaList = document.querySelector('.pizza__list');
   pizzaList.textContent = '';
 
