@@ -67,7 +67,8 @@
 
   &__item {}
 
-  &__label {
+  &__label,
+  &__reset {
     cursor: pointer;
     display: block;
     background: $white;
@@ -80,6 +81,10 @@
     @media (width >=620px) {
       font-size: 20px;
     }
+  }
+
+  &__reset {
+    height: 100%;
   }
 
   &__checkbox {

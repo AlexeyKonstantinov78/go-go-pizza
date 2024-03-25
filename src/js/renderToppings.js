@@ -1,4 +1,5 @@
 import { getData } from './getData.js';
+import { renderPizza } from './renderPizza.js';
 import { textToLoverToUpperCase } from './util.js';
 
 const createTopping = (data, i, ruName) => {
@@ -24,4 +25,48 @@ export const renderToppings = async () => {
   });
 
   toppingsList.append(...itemList);
+
+  const itemReset = document.createElement('li');
+  itemReset.classList.add('toppings__item');
+  const btnReset = document.createElement('button');
+  btnReset.classList.add('toppings__reset');
+  btnReset.textContent = 'Сбросить';
+  btnReset.type = "reset";
+  itemReset.append(btnReset);
+
+  const toppingsForm = document.querySelector('.toppings__form');
+
+  toppingsForm.addEventListener('change', (event) => {
+    const formData = new FormData(toppingsForm);
+    const checkToppings = [];
+
+    //просмотр данных в форм дата
+    // console.log(Object.fromEntries(formData));
+
+    // formData.entries().forEach(entry => console.log(entry));
+
+    // for (const item of formData.entries()) {
+    //   console.log(item);
+    // }
+    // for (const [name, value] of formData.entries()) {
+    //   console.log(name);
+    //   console.log(value);
+    // }
+    for (const [, value] of formData.entries()) {
+      checkToppings.push(value);
+    }
+
+    toppingsList.append(itemReset);
+
+    renderPizza(checkToppings);
+  });
+
+  itemReset.addEventListener('click', () => {
+    renderPizza();
+    setTimeout(() => {
+      itemReset.remove();
+    }, 300);
+  });
 };
+
+

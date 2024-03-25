@@ -20,8 +20,9 @@ const createCard = data => {
   return card;
 };
 
-export const renderPizza = async () => {
-  const pizzas = await getData('/api/products');
+export const renderPizza = async (toppings) => {
+
+  const pizzas = await getData(`/api/products${toppings ? `?toppings=${toppings}` : ''}`);
   const pizzaList = document.querySelector('.pizza__list');
   pizzaList.textContent = '';
 
