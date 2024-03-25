@@ -1,0 +1,32 @@
+.loader {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(44, 40, 38, 0.8);
+  z-index: 50;
+
+  &__spiner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 5px solid black;
+    // border-image-slice: 1;
+    // border-width: 5px;
+    // border-image-source: linear-gradient(52deg, rgba(34, 193, 195, 1) 0%, rgba(253, 187, 45, 1) 100%);
+    border-top-color: aquamarine;
+    animation: spiner 1s linear infinite;
+  }
+}
+
+@keyframes spiner {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
