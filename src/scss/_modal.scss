@@ -1,0 +1,78 @@
+.modal {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(44, 40, 38, 0.8);
+  z-index: 45;
+  cursor: pointer;
+  padding: 30px 14px;
+  display: none;
+  overflow-y: auto;
+}
+
+.modal__main {
+  position: relative;
+  cursor: default;
+  padding: 16px;
+  background: $white;
+  border-radius: 32px;
+  margin: auto;
+}
+
+.modal__close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+
+.modal-pizza {
+
+  &__main {
+    max-width: 368px;
+  }
+
+  &__img {}
+
+  // .modal-pizza__title
+
+  &__title {}
+
+  // .modal-pizza__toppings
+
+  &__toppings {}
+
+  // .modal-pizza__info
+
+  &__info {}
+
+  // .modal-pizza__price
+
+  &__price {}
+
+  // .modal-pizza__weight
+
+  &__weight {}
+
+  // .modal-pizza__form
+
+  &__form {}
+
+  // .modal-pizza__fieldset
+
+  &__fieldset {}
+
+  // .modal-pizza__radio
+
+  &__radio {}
+
+  // .modal-pizza__label
+
+  &__label {}
+
+  // .modal-pizza__add-cart
+
+  &__add-cart {}
+
+  // .modal-pizza__close
+
+
+}
