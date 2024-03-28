@@ -2,6 +2,18 @@ import { getData } from './getData.js';
 import { renderPizza } from './renderPizza.js';
 import { textToLoverToUpperCase } from './util.js';
 
+
+const btnItemReset = () => {
+  const itemReset = document.createElement('li');
+  itemReset.classList.add('toppings__item', 'toppings__item_reset');
+  const btnReset = document.createElement('button');
+  btnReset.classList.add('toppings__reset');
+  btnReset.textContent = 'Сбросить';
+  btnReset.type = "reset";
+  itemReset.append(btnReset);
+  return itemReset;
+}
+
 const createTopping = (data, i, ruName) => {
   const li = document.createElement('li');
   li.classList.add('toppings__item');
@@ -26,13 +38,7 @@ export const renderToppings = async () => {
 
   toppingsList.append(...itemList);
 
-  const itemReset = document.createElement('li');
-  itemReset.classList.add('toppings__item');
-  const btnReset = document.createElement('button');
-  btnReset.classList.add('toppings__reset');
-  btnReset.textContent = 'Сбросить';
-  btnReset.type = "reset";
-  itemReset.append(btnReset);
+  const itemReset = btnItemReset();
 
   const toppingsForm = document.querySelector('.toppings__form');
 
@@ -64,10 +70,10 @@ export const renderToppings = async () => {
   });
 
   itemReset.addEventListener('click', () => {
+    console.log();
     renderPizza();
+    // document.querySelector('.toppings__item_reset').remove();
     itemReset.remove();
     toppingsForm.reset();
   });
 };
-
-
