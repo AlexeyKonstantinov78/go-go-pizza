@@ -1,4 +1,5 @@
 import { getData } from './getData.js';
+import { modalController } from './modalController.js';
 import { textToLoverToUpperCase } from './util.js';
 
 const btnReset = document.createElement('button');
@@ -45,6 +46,12 @@ export const renderPizza = async (toppings) => {
     });
 
     pizzaList.append(...itemList);
+
+    modalController({
+      modal: '.modal-pizza',
+      btnOpen: '.card__button',
+      btnClose: '.modal__close',
+    });
   } else {
     pizzaTitle.textContent = 'Такой пиццы у нас нет :(';
     pizzaTitle.after(btnReset);
