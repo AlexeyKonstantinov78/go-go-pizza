@@ -54,20 +54,21 @@ html(lang="ru")
         p.modal-pizza__info
           span.modal-pizza__price 400 &#x20bd;
           span /
-          span.modal-pizza__weight 25 см
+          span.modal-pizza__size 25 см
         form.modal-pizza__form
-          fieldset.modal-pizza__fieldset
-            input.modal-pizza__radio(type="radio", id="thick", name="crust", value="thick")
-            label.modal-pizza__label(for="thick") Пышное тесто
-            input.modal-pizza__radio(type="radio", id="thin", name="crust", value="thin" checked)
-            label.modal-pizza__label(for="thin") Тонкое тесто
-          fieldset.modal-pizza__fieldset
-            input.modal-pizza__radio(type="radio", id="25см", name="size", value="25см" checked)
-            label.modal-pizza__label(for="25см") 25 см
-            input.modal-pizza__radio(type="radio", id="30см", name="size", value="30см")
-            label.modal-pizza__label(for="30см") 30 см
-            input.modal-pizza__radio(type="radio", id="35см", name="size", value="35см")
-            label.modal-pizza__label(for="35см") 35 см
+          div.modal-pizza__group-fieldset
+            fieldset.modal-pizza__fieldset
+              input.modal-pizza__radio(type="radio", id="thick", name="crust", value="thick")
+              label.modal-pizza__label(for="thick") Пышное тесто
+              input.modal-pizza__radio(type="radio", id="thin", name="crust", value="thin" checked)
+              label.modal-pizza__label(for="thin") Тонкое тесто
+            fieldset.modal-pizza__fieldset
+              input.modal-pizza__radio(type="radio", id="25см", name="size", value="25см" checked)
+              label.modal-pizza__label(for="25см") 25 см
+              input.modal-pizza__radio(type="radio", id="30см", name="size", value="30см")
+              label.modal-pizza__label(for="30см") 30 см
+              input.modal-pizza__radio(type="radio", id="35см", name="size", value="35см")
+              label.modal-pizza__label(for="35см") 35 см
           button.modal-pizza__add-cart В корзину
         button.modal__close
           <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
