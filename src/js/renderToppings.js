@@ -70,7 +70,6 @@ export const renderToppings = async () => {
   });
 
   itemReset.addEventListener('click', () => {
-    console.log();
     renderPizza();
     // document.querySelector('.toppings__item_reset').remove();
     itemReset.remove();

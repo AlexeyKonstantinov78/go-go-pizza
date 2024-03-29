@@ -1,5 +1,6 @@
 import { getData } from './getData.js';
 import { modalController } from './modalController.js';
+import { renderModalPizza } from './renderModalPizza.js';
 import { textToLoverToUpperCase } from './util.js';
 
 const btnReset = document.createElement('button');
@@ -51,6 +52,10 @@ export const renderPizza = async (toppings) => {
       modal: '.modal-pizza',
       btnOpen: '.card__button',
       btnClose: '.modal__close',
+      cbOpen(btnOpen) {
+        const id = btnOpen.dataset.id;
+        renderModalPizza(id);
+      }
     });
   } else {
     pizzaTitle.textContent = 'Такой пиццы у нас нет :(';
