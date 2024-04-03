@@ -1,0 +1,112 @@
+.modal-cart {
+
+  &__main {
+    max-width: 292px;
+    width: 100%;
+    padding: 24px 16px 16px;
+
+    @media (width >=860px) {
+      max-width: 724px;
+    }
+  }
+
+  &__title {
+    font-weight: 900;
+    font-size: 28px;
+    line-height: 1;
+    margin-bottom: 20px;
+
+    @media (width >=860px) {
+      font-size: 44px;
+      margin-bottom: 24px;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 20px;
+
+    @media (width >=860px) {
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4px;
+  }
+
+  &__img {
+    width: 63px;
+    height: 63px;
+  }
+
+  &__content {
+    flex-grow: 1;
+  }
+
+  &__name {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 1.4;
+    margin-bottom: 4px;
+
+    @media (width >=860px) {
+      font-size: 16px;
+    }
+  }
+
+  &__info {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.4;
+    color: $beige;
+
+    @media (width >=860px) {
+      font-size: 16px;
+    }
+  }
+
+  &__price {
+    color: $dark;
+  }
+
+  &__delete {
+    display: block;
+    width: 20px;
+    height: 20px;
+  }
+
+  &__hr {
+    margin-bottom: 20px;
+
+    @media (width >=860px) {
+      margin-bottom: 24px;
+    }
+  }
+
+  &__result {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 1.4;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @media (width >=860px) {
+      font-size: 20px;
+    }
+  }
+
+  &__submit {
+    color: $white;
+    background-color: $orange;
+    border-radius: 32px;
+    padding: 8px 24px;
+  }
+}
