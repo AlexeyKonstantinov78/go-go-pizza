@@ -3,6 +3,7 @@ import { getData } from './getData.js';
 import { createLabel, createRadioInput, textToLoverToUpperCase } from './util.js';
 
 const renderELement = ({ id, images, name, price, toppings }) => {
+  cartControl.removeCart('a151bc1d-0557-4025-8eb8-e5fdde3a94ee');
   const modalPizzaMain = document.querySelector('.modal-pizza__main');
   modalPizzaMain.textContent = '';
 
