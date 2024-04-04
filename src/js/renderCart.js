@@ -1,32 +1,37 @@
 import { cartControl } from './cartControl.js';
+import { API_URL } from './const.js';
 import { getData } from './getData.js';
 import { textToLoverToUpperCase } from './util.js';
 
-export const renderCart = () => {
-  const cartListElem = document.querySelector('.modal-cart__list');
-  const cartPriceElem = document.querySelectorAll('.modal-cart__price');
+const cartListElem = document.querySelector('.modal-cart__list');
+const cartPriceElem = document.querySelectorAll('.modal-cart__price');
 
-  const nextBtn = document.querySelector('.modal-cart__continue');
-  const prevBtn = document.querySelector('.modal-cart__prev');
-  const submitBtn = document.querySelectorAll('.modal-cart__send-order');
+const nextBtn = document.querySelector('.modal-cart__continue');
+const prevBtn = document.querySelector('.modal-cart__prev');
+const submitBtn = document.querySelector('.modal-cart__send-order');
 
-  const renderCartList = async () => {
-    let totalPrice = 0;
+const cartBlockElem = document.querySelector('.modal-cart__block');
+const cartDeliveryElem = document.querySelector('.modal-cart__delivery');
+const cartForm = document.querySelector('.modal-cart__form');
 
-    if (cartControl.cartData.length) {
-      cartListElem.textContent = '';
-      nextBtn.disabled = false;
 
-      const cardsData = await Promise.all(cartControl.cartData.map(async item => await getData(`/api/products/${item.id}`)));
-      console.log('cardsData: ', cardsData);
+const renderCartList = async () => {
+  let totalPrice = 0;
 
-      const cardsCart = cardsData.map((data, i) => {
-        const item = cartControl.cartData[i];
+  if (cartControl.cartData.length) {
+    cartListElem.textContent = '';
+    nextBtn.disabled = false;
 
-        const cardCart = document.createElement('li');
-        cardCart.classList.add('modal-cart__item');
+    const cardsData = await Promise.all(cartControl.cartData.map(async item => await getData(`/api/products/${item.id}`)));
+    console.log('cardsData: ', cardsData);
 
-        cardCart.innerHTML = `
+    const cardsCart = cardsData.map((data, i) => {
+      const item = cartControl.cartData[i];
+
+      const cardCart = document.createElement('li');
+      cardCart.classList.add('modal-cart__item');
+
+      cardCart.innerHTML = `
           <picture>
               <source srcset="${data.images[1]}" type="image/webp">
               <img class="modal-cart__image" src="i${data.images[0]}" alt="${data.name.ru}" width="63" height="63">
@@ -42,32 +47,86 @@ export const renderCart = () => {
           </button>
         `;
 
-        totalPrice += data.price[item.size];
+      totalPrice += data.price[item.size];
 
-        return cardCart;
-      });
+      return cardCart;
+    });
 
-      cartListElem.append(...cardsCart);
+    cartListElem.append(...cardsCart);
 
-    } else {
-      cartListElem.innerHTML = '<li>Корзина пуста...</li>';
-      nextBtn.disabled = true;
-    }
-
-    cartPriceElem.forEach(elem => elem.textContent = `${totalPrice} ₽`);
+  } else {
+    cartListElem.innerHTML = '<li>Корзина пуста...</li>';
+    nextBtn.disabled = true;
   }
 
+  cartPriceElem.forEach(elem => elem.textContent = `${totalPrice} ₽`);
+}
+
+const delCartItem = (e) => {
+  const deleteButton = e.target.closest('.modal-cart__delete-button');
+  if (deleteButton) {
+    const cartId = deleteButton.dataset.id;
+
+    cartControl.removeCart(cartId);
+    renderCartList();
+  }
+};
+
+const changeNextBlock = () => {
+  cartBlockElem.style.display = 'none';
+  cartDeliveryElem.style.display = 'block';
+};
+
+const changePrevBlock = () => {
+  cartBlockElem.style.display = 'block';
+  cartDeliveryElem.style.display = 'none';
+};
+
+const submitOrder = async (e) => {
+  e.preventDefault();
+
+  const formData = new FormData(cartForm);
+
+  const data = Object.fromEntries(formData);
+  data.pizzas = cartControl.cartData;
+  console.log('data: ', data);
+
+  try {
+    const response = await fetch(`${API_URL}/api/orders`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
+
+    if (!response.ok) {
+      throw new Error('Опс что-то не так с отправкой');
+    }
+
+    const order = await response.json();
+
+    cartControl.clearCart();
+
+    cartForm.innerHTML = `
+        <h3>Заказ оформлен, номер заказа ${order.orderId}</h3>
+      `;
+
+    [nextBtn, prevBtn, submitBtn].forEach(btn => btn.disabled = true);
+
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export const modalCartController = () => {
   renderCartList();
 
-  cartListElem.addEventListener('click', (e) => {
-    const deleteButton = e.target.closest('.modal-cart__delete-button');
-    if (deleteButton) {
-      const cartId = deleteButton.dataset.id;
+  cartListElem.addEventListener('click', delCartItem);
 
-      cartControl.removeCart(cartId);
-      renderCartList();
-    }
-  });
+  nextBtn.addEventListener('click', changeNextBlock);
 
+  prevBtn.addEventListener('click', changePrevBlock);
 
+  cartForm.addEventListener('submit', submitOrder);
 };
